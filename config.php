@@ -7,7 +7,7 @@
     $servername = getenv('IP');
     $username = getenv('C9_USER');
     $password = "";
-    $database = "olloniego2";
+    $database = "olloniego";
     $dbport = 3306;
 
 ?>
