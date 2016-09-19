@@ -1,11 +1,9 @@
 <?php
 
-	$link = mysql_connect("localhost","wsrveimp","caseyuqi");
+	include_once("config2.php");
 	
-	if ($link){
-		mysql_select_db("wsrveimp_olloniego",$link);
-	}
-
+	$link = mysqli_connect($username, $password, $database);
+	
 	$link->query("SET NAMES 'utf8'");
 	
 ?>
