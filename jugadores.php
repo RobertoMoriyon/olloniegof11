@@ -1,5 +1,5 @@
 	<?php
-		include_once("clases/connectBD2.php");
+		include_once("clases/connectBD.php");
 		
 		$resultado = mysqli_query($link,"SELECT *,TIMESTAMPDIFF(YEAR,fecha_nac,CURDATE()) AS edad from jugadores");
 	    
