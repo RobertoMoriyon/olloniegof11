@@ -1,6 +1,6 @@
 <?php
 
-	include_once("config.php");
+	include_once("Config/config.php");
 	
 	$link = mysqli_connect($servername, $username, $password, $database, $dbport);
 	
