@@ -4,8 +4,8 @@
    
 	// Cambiar las variables según el entorno -- Pendiente
 
-    $servername = getenv('IP');
-    $username = getenv('wsrveimp');
+    $servername = "localhost";
+    $username = "wsrveimp";
     $password = "caseyuqi";
     $database = "wsrveimp_olloniego";
     $dbport = 3306;
