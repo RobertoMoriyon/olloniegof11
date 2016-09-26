@@ -75,6 +75,8 @@
 
 <head>
     <?php include_once ( "templates/head.php");?>
+    
+    @import url("http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css")
     <style>
         .page-header {
             min-height: 30vh !important;
@@ -181,11 +183,11 @@
                 <form action="convocatoria.php" method="POST">
                     <div class="modal-body">
                         <label for="name">Jugador:</label><br>
-                        <select class="select form-control" placeholder="Elegir Jugador" name="jugad">
+                        <select placeholder="Elegir Jugador" name="jugad">
                             <?php echo $drop_jugadores; ?>
-                        </select>
+                        </select><br>
                         <label for="name">Asistiras?</label><br>
-                        <select class="select form-control" name="asiste">
+                        <select name="asiste">
                             <option value="SI">SI</option>
                             <option value="NO">NO</option>
                         </select>
