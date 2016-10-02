@@ -4,6 +4,7 @@
     
     $name = $_POST["jugad"]; // El nombre del jugador
 	$asistencia = $_POST["asiste"]; // Si asistira o no
+	$acta = $_POST["acta"];
 
     //************************************************************************************
     //Preparar la consulta para sacar en el select del Modal los nombres de los jugadores
@@ -36,6 +37,8 @@
                             ".$fila_acta["sede"].", ".$fila_acta["fecha"]."
                         </p>
                     ";
+                    
+    
      //************************************************************************************
     $acta_of = $fila_acta["id_acta"];
     if ($name != "") {
@@ -46,7 +49,7 @@
          ");
      }
     //************************************************************************************
-    $consulta_conv_si = "SELECT nombre, asistira FROM jugadores, convocatorias WHERE jugadores.id_jugador = convocatorias.id_jugador AND asistira = 'SI'";
+    $consulta_conv_si = "SELECT nombre, asistira FROM jugadores, convocatorias WHERE jugadores.id_jugador = convocatorias.id_jugador AND asistira = 'SI' AND convocatorias.id_acta=$fila_acta[id_acta]";
     $query_conv_si = mysqli_query($link,$consulta_conv_si);
     $drop_si = "";
     $cont_si = 0;
