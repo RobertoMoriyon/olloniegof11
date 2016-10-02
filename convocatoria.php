@@ -109,49 +109,49 @@
             <div class="section text-left">
                 <h2 class="title">Convocatoria</h2>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-raised card-background" style="background-image: url('public/img/Riosa.JPG')">
-                        <div class="content">
-                             <?php 
-                                echo $acta_partido;
-                            ?>
-                            <!-- Modal -->
-                            <button class="btn btn-raised btn-round btn-info" data-toggle="modal" data-target="#noticeModal">
-                                Vienes?
-                            </button>
-                            <!-- Fin Modal -->
+            
+            <div id="cards" class="cd-section">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-raised card-background" style="background-image: url('public/img/Riosa.JPG')">
+                            <div class="content">
+                                 <?php 
+                                    echo $acta_partido;
+                                ?>
+                                <!-- Modal -->
+                                <button class="btn btn-raised btn-round btn-info" data-toggle="modal" data-target="#noticeModal">
+                                    Vienes?
+                                </button>
+                                <!-- Fin Modal -->
+                            </div>
+                            
                         </div>
-                        
                     </div>
                 </div>
-
-            </div>
-
-
-            <div id="cards" class="cd-section">
-                <div class="cards">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="content content-success">
-                                <h5 class="category-social">
-	    						    <i class="fa fa-thumbs-o-up"></i> Vienen <?php echo $cont_si;?> Jugadores
-	    						</h5>
-                                <?php
-                                    echo $drop_si;
-                                ?>
+                <div class="row">
+                    <div class="cards">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="content content-success">
+                                    <h5 class="category-social">
+    	    						    <i class="fa fa-thumbs-o-up"></i> Vienen <?php echo $cont_si;?> Jugadores
+    	    						</h5>
+                                    <?php
+                                        echo $drop_si;
+                                    ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="content content-danger">
-                                <h5 class="category-social">
-	    									<i class="fa fa-thumbs-o-down"></i> No vienen <?php echo $cont_no;?> Jugadores
-	    								</h5>
-                                 <?php
-                                    echo $drop_no;
-                                ?>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="content content-danger">
+                                    <h5 class="category-social">
+    	    									<i class="fa fa-thumbs-o-down"></i> No vienen <?php echo $cont_no;?> Jugadores
+    	    								</h5>
+                                     <?php
+                                        echo $drop_no;
+                                    ?>
+                                </div>
                             </div>
                         </div>
                     </div>
