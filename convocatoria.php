@@ -1,5 +1,5 @@
 <?php
-    require_once("clases/connectBD.php");
+    require_once("clases/connectBD2.php");
     
     
     $name = $_POST["jugad"]; // El nombre del jugador
@@ -29,12 +29,16 @@
                         LIMIT 0 , 1";
     $query_acta = mysqli_query($link,$consulta_acta);
     $fila_acta = mysqli_fetch_assoc($query_acta);
+
+    $time = strtotime($fila_acta["fecha"]);
+    $myFormatForView = date("d/m/y - g:i A", $time);
+
     $acta_partido = "<h6 class='category text-info'>".$fila_acta["torneo"]."</h6>
                         <h3 class='card-title'>".$fila_acta["local"]."</h3>
                         <h3 class='card-title'>vs</h3>
                         <h3 class='card-title'>".$fila_acta["visitante"]."</h3>
                         <p class='card-description'>
-                            ".$fila_acta["sede"].", ".$fila_acta["fecha"]."
+                            ".$fila_acta["sede"].", ".$myFormatForView."
                         </p>
                     ";
                     
@@ -49,24 +53,26 @@
          ");
      }
     //************************************************************************************
-    $consulta_conv_si = "SELECT nombre, asistira FROM jugadores, convocatorias WHERE jugadores.id_jugador = convocatorias.id_jugador AND asistira = 'SI' AND convocatorias.id_acta=$fila_acta[id_acta]";
+    $consulta_conv_si = "SELECT nombre, asistira, dorsal FROM jugadores, convocatorias WHERE jugadores.id_jugador = convocatorias.id_jugador AND asistira = 'SI' AND convocatorias.id_acta=$fila_acta[id_acta]";
     $query_conv_si = mysqli_query($link,$consulta_conv_si);
     $drop_si = "";
     $cont_si = 0;
     while($fila_conv_si = mysqli_fetch_assoc($query_conv_si)){
             $drop_si .= "<p class='card-description'>
-                           ".$fila_conv_si["nombre"]." 
+                            ".$fila_conv_si["dorsal"].". 
+                            ".$fila_conv_si["nombre"]." 
                         </p>";
             $cont_si++;
     }
     //************************************************************************************
-    $consulta_conv_no = "SELECT nombre, asistira FROM jugadores, convocatorias WHERE jugadores.id_jugador = convocatorias.id_jugador AND asistira = 'NO'";
+    $consulta_conv_no = "SELECT nombre, asistira, dorsal FROM jugadores, convocatorias WHERE jugadores.id_jugador = convocatorias.id_jugador AND asistira = 'NO' AND convocatorias.id_acta=$fila_acta[id_acta]";
     $query_conv_no = mysqli_query($link,$consulta_conv_no);
     $drop_no = "";
     $cont_no = 0;
     while($fila_conv_no = mysqli_fetch_assoc($query_conv_no)){
             $drop_no .= "<p class='card-description'>
-                           ".$fila_conv_no["nombre"]." 
+                            ".$fila_conv_no["dorsal"].". 
+                            ".$fila_conv_no["nombre"]." 
                         </p>";
             $cont_no++;
     }
@@ -125,7 +131,7 @@
 
             <div id="cards" class="cd-section">
                 <div class="cards">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="content content-success">
                                 <h5 class="category-social">
@@ -137,7 +143,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="content content-danger">
                                 <h5 class="category-social">
@@ -146,24 +152,6 @@
                                  <?php
                                     echo $drop_no;
                                 ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="content content-info">
-                                <h5 class="category-social">
-	    									<i class="fa fa-question-circle-o"></i> TechCrunch
-	    								</h5>
-                                <h4 class="card-title">
-	    									<a href="#pablo">"Focus on Your Employees"</a>
-	    								</h4>
-                                <p class="card-description">
-                                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                                </p>
-                                <div class="footer text-center">
-                                    <a href="#pablo" class="btn btn-white btn-round">Read Article</a>
-                                </div>
                             </div>
                         </div>
                     </div>
